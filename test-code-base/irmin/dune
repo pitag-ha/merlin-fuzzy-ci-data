@@ -1,0 +1,6 @@
+(vendored_dirs vendors)
+
+(mdx
+ (files README.md)
+ (package irmin-cli)
+ (packages irmin-cli))

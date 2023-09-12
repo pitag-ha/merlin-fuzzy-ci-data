@@ -1,0 +1,62 @@
+(executables
+ (names
+  readme
+  trees
+  sync
+  process
+  deploy
+  irmin_git_store
+  custom_merge
+  push
+  custom_graphql
+  custom_storage
+  fold)
+ (libraries
+  astring
+  cohttp
+  fmt
+  irmin.unix
+  irmin-git.unix
+  irmin-graphql.unix
+  irmin-pack.unix
+  irmin-watcher
+  lwt
+  lwt.unix)
+ (preprocess
+  (pps ppx_irmin)))
+
+(alias
+ (name examples)
+ (deps
+  readme.exe
+  trees.exe
+  sync.exe
+  process.exe
+  deploy.exe
+  push.exe
+  irmin_git_store.exe
+  custom_merge.exe
+  custom_graphql.exe
+  fold.exe
+  gc.exe
+  custom_storage.exe))
+
+(alias
+ (name runtest)
+ (package irmin-cli)
+ (deps
+  readme.exe
+  trees.exe
+  sync.exe
+  process.exe
+  deploy.exe
+  push.exe
+  irmin_git_store.exe
+  custom_merge.exe
+  fold.exe))
+
+(mdx
+ (files merkle_proofs.md)
+ ; (preludes merkle_proofs_prelude.ml)
+ (package irmin-cli)
+ (packages irmin-cli))
