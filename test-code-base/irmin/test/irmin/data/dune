@@ -1,4 +1,0 @@
-(test
- (name test)
- (package irmin)
- (libraries irmin.data alcotest vector fmt))
