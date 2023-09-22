@@ -1,0 +1,38 @@
+(test
+ (name test)
+ (modules test)
+ (package awa)
+ (deps
+  (source_tree data))
+ (libraries awa mtime.clock.os cstruct-unix mirage-crypto-rng.unix))
+
+(executable
+ (name awa_test_server)
+ (public_name awa_test_server)
+ (modules awa_test_server)
+ (package awa)
+ (libraries awa mtime.clock.os cstruct-unix mirage-crypto-rng.unix
+   fmt.tty logs.fmt logs.cli fmt.cli))
+
+(executable
+ (name awa_test_client)
+ (public_name awa_test_client)
+ (modules awa_test_client)
+ (package awa)
+ (libraries awa mirage-crypto-rng.unix mtime.clock.os cmdliner fmt.tty
+   logs.fmt logs.cli fmt.cli cstruct-unix))
+
+(executable
+ (name awa_gen_key)
+ (public_name awa_gen_key)
+ (modules awa_gen_key)
+ (package awa)
+ (libraries awa mirage-crypto-rng.unix cmdliner))
+
+(executable
+ (name public_key_of_seed)
+ (modules public_key_of_seed)
+ (libraries awa))
+
+(cram
+ (deps %{bin:awa_gen_key} public_key_of_seed.exe))

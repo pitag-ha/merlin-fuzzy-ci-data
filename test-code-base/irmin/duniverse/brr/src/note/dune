@@ -1,0 +1,6 @@
+(library
+ (name brr_note)
+ (public_name brr.note)
+ (modules brr_note brr_note_kit brr_note_legacy)
+ (libraries brr note)
+ (wrapped false))

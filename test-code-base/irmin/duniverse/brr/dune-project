@@ -1,0 +1,7 @@
+(lang dune 2.8)
+(using dune_site 0.1)
+(name brr)
+(version v0.0.3+dune)
+(package
+ (name brr)
+ (sites (share console)))

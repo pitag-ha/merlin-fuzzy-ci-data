@@ -1,0 +1,4 @@
+(library
+ (name note)
+ (public_name note)
+ (wrapped false))

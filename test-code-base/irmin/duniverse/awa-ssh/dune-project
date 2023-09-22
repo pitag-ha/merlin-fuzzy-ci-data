@@ -1,0 +1,5 @@
+(lang dune 2.7)
+(name awa)
+(version v0.3.0)
+(cram enable)
+(formatting disabled)

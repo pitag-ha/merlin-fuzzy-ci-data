@@ -1,1 +1,5 @@
-The test code base contains Irmin https://github.com/mirage/irmin checked out to 8da4d16e7cc8beddfc8a824feca325426bae08a9 and built with 4.14.0
+The test code base contains Irmin https://github.com/mirage/irmin.
+The repo is checked out to 3f88570e94638da6ed6581a8c3062b5973b1f5c3,
+the upper bound on brr in irmin-client.opam is removed,
+the project's monorepo is pulled in with opam monorepo,
+the project is built with [dune build @check] on 4.14.01.

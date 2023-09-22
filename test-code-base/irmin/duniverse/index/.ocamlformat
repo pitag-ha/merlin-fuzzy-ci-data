@@ -1,0 +1,8 @@
+version = 0.25.1
+profile = conventional
+
+ocaml-version = 4.08
+break-infix = fit-or-vertical
+parse-docstrings = true
+indicate-multiline-delimiters = no
+module-item-spacing = compact

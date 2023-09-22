@@ -1,0 +1,2 @@
+File "recursion_with_type_parameters.ml", lines 1-2, characters 0-47:
+Error: ppx_repr: Can't support mutually-recursive types with type parameters in type t1

@@ -1,0 +1,24 @@
+
+(executables
+  (names test1 test_ann_0_3)
+  (libraries printbox printbox-text))
+
+(rule
+  (targets test1.output)
+  (package printbox-text)
+  (action (with-stdout-to %{targets} (run ./test1.exe))))
+
+(rule
+  (alias runtest)
+  (package printbox-text)
+  (action (diff test1.expected test1.output)))
+
+(rule
+  (targets test_ann_0_3.output)
+  (package printbox-text)
+  (action (with-stdout-to %{targets} (run ./test_ann_0_3.exe))))
+
+(rule
+  (alias runtest)
+  (package printbox-text)
+  (action (diff test_ann_0_3.expected test_ann_0_3.output)))

@@ -1,0 +1,5 @@
+version=0.25.1
+module-item-spacing=compact
+break-infix=fit-or-vertical
+parens-tuple=multi-line-only
+wrap-comments=false

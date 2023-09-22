@@ -1,0 +1,37 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  run:
+    name: Build
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+        ocaml-compiler:
+          - 4.08.x
+          - 4.12.x
+          - 4.14.x
+          - ocaml-base-compiler.5.0.0
+        exclude:
+          - os: windows-latest
+            ocaml-compiler: ocaml-base-compiler.5.0.0
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ocaml/setup-ocaml@v2
+      with:
+        ocaml-compiler: ${{ matrix.ocaml-compiler }}
+    - run: opam pin -n .
+    - run: opam depext -yt qcheck qcheck-core qcheck-ounit qcheck-alcotest
+    - run: opam install -t . --deps-only
+    - run: opam exec -- dune build
+    - run: opam exec -- dune runtest
+      if: ${{ matrix.os != 'windows-latest'}}
